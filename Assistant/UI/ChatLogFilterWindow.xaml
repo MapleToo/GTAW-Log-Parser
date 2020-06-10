@@ -1,0 +1,55 @@
+﻿<Controls:MetroWindow x:Name="ChatLogFilter" x:Class="Assistant.UI.ChatLogFilterWindow"
+                      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      xmlns:local="clr-namespace:Assistant.UI"
+                      mc:Ignorable="d"
+                      WindowStartupLocation="Manual"
+                      ResizeMode="NoResize"
+                      Closing="ChatLogFilter_Closing"
+                      WindowTransitionsEnabled="True"
+                      BorderThickness="0" 
+                      GlowBrush="Black"
+                      Title="Filter Chat Log" Height="324" Width="494" ShowInTaskbar="True" IsMinButtonEnabled="False" IsMaxRestoreButtonEnabled="False" ShowIconOnTitleBar="False" TitleCaps="False" Icon="../Resources/AppIcon.ico">
+
+    <Controls:MetroWindow.WindowButtonCommands>
+        <Controls:WindowButtonCommands 
+                                       LightCloseButtonStyle="{StaticResource MahApps.Metro.Styles.WindowButton.Close.Light.Win10}"
+                                       DarkCloseButtonStyle="{StaticResource MahApps.Metro.Styles.WindowButton.Close.Dark.Win10}"/>
+    </Controls:MetroWindow.WindowButtonCommands>
+
+    <Grid>
+        <Label x:Name="StatusLabel" Content="Chat log not loaded" FontWeight="DemiBold" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="329" Foreground="Red"/>
+        <Label x:Name="TimeLabel" Content="Current time: 23:23:23" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="344,10,0,0" VerticalAlignment="Top" Width="140"/>
+        <Button x:Name="LoadUnparsed" Click="LoadUnparsed_Click" Content="Load Unparsed Chat Log" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="150"/>
+        <Button x:Name="BrowseForParsed" Click="BrowseForParsed_Click" Content="Browse For Parsed Chat Log" HorizontalAlignment="Left" Margin="165,41,0,0" VerticalAlignment="Top" Width="174"/>
+        <Button x:Name="FilterModeToggle" Click="FilterModeToggle_Click" Content="Advanced Filter" HorizontalAlignment="Left" Margin="344,41,0,0" VerticalAlignment="Top" Width="140"/>
+        <TextBox x:Name="Filtered" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="179" Margin="165,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="319" AcceptsReturn="True"/>
+
+
+        <CheckBox x:Name="IC" Checked="Criterion_CheckedChanged" Unchecked="Criterion_CheckedChanged" Content="Local" HorizontalAlignment="Left" Margin="10,73,0,0" VerticalAlignment="Top" Width="70"/>
+        <CheckBox x:Name="OOC" Checked="Criterion_CheckedChanged" Unchecked="Criterion_CheckedChanged" Content="OOC" HorizontalAlignment="Left" Margin="90,73,0,0" VerticalAlignment="Top" Width="70"/>
+        <CheckBox x:Name="Emote" Checked="Criterion_CheckedChanged" Unchecked="Criterion_CheckedChanged" Content="Emote" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" Width="70"/>
+        <CheckBox x:Name="Action" Checked="Criterion_CheckedChanged" Unchecked="Criterion_CheckedChanged" Content="Action" HorizontalAlignment="Left" Margin="90,96,0,0" VerticalAlignment="Top" Width="70"/>
+        <CheckBox x:Name="Radio" Checked="Criterion_CheckedChanged" Unchecked="Criterion_CheckedChanged" Content="Radio" HorizontalAlignment="Left" Margin="10,119,0,0" VerticalAlignment="Top" Width="70"/>
+        <CheckBox x:Name="PM" Checked="Criterion_CheckedChanged" Unchecked="Criterion_CheckedChanged" Content="PM" HorizontalAlignment="Left" Margin="90,119,0,0" VerticalAlignment="Top" Width="70"/>
+        <CheckBox x:Name="Ads" Checked="Criterion_CheckedChanged" Unchecked="Criterion_CheckedChanged" Content="Advertisements" HorizontalAlignment="Left" Margin="10,142,0,0" VerticalAlignment="Top" Width="150"/>
+        <CheckBox x:Name="None1" IsEnabled="False" Visibility="Hidden" Checked="Criterion_CheckedChanged" Unchecked="Criterion_CheckedChanged" Content="None" HorizontalAlignment="Left" Margin="10,164,0,0" VerticalAlignment="Top" Width="70"/>
+        <CheckBox x:Name="None2" IsEnabled="False" Visibility="Hidden" Checked="Criterion_CheckedChanged" Unchecked="Criterion_CheckedChanged" Content="None" HorizontalAlignment="Left" Margin="90,165,0,0" VerticalAlignment="Top" Width="70"/>
+        <CheckBox x:Name="None3" IsEnabled="False" Visibility="Hidden" Checked="Criterion_CheckedChanged" Unchecked="Criterion_CheckedChanged" Content="None" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top" Width="70"/>
+        <CheckBox x:Name="None4" IsEnabled="False" Visibility="Hidden" Checked="Criterion_CheckedChanged" Unchecked="Criterion_CheckedChanged" Content="None" HorizontalAlignment="Left" Margin="90,188,0,0" VerticalAlignment="Top" Width="70"/>
+
+        <CheckBox x:Name="Other" Checked="Criterion_CheckedChanged" Unchecked="Criterion_CheckedChanged" Content="Other (not above)" HorizontalAlignment="Left" Margin="10,211,0,0" VerticalAlignment="Top" Width="150"/>
+        <CheckBox x:Name="RemoveTimestamps" Checked="RemoveTimestamps_CheckedChanged" Unchecked="RemoveTimestamps_CheckedChanged" Content="Remove timestamps" HorizontalAlignment="Left" Margin="10,234,0,0" VerticalAlignment="Top" Width="150"/>
+
+
+        <Button x:Name="SaveFiltered" Click="SaveFiltered_Click" Content="Save As" HorizontalAlignment="Left" Margin="10,257,0,0" VerticalAlignment="Top" Width="150"/>
+        <Button x:Name="CopyFilteredToClipboard" Click="CopyFilteredToClipboard_Click" Content="Copy To Clipboard" HorizontalAlignment="Left" Margin="165,257,0,0" VerticalAlignment="Top" Width="319"/>
+
+        <Label x:Name="WordsLabel" Content="Words to filter in:" HorizontalAlignment="Left" Margin="492,48,0,0" VerticalAlignment="Top" Width="150"/>
+        <TextBox x:Name="Words" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="179" Margin="496,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Text="Firstname Lastname" AcceptsReturn="True" GotKeyboardFocus="Words_GotKeyboardFocus"/>
+        <Button x:Name="Filter" Click="Filter_Click" Content="Filter" HorizontalAlignment="Left" Margin="496,257,0,0" VerticalAlignment="Top" Width="150" GotKeyboardFocus="Filter_GotKeyboardFocus"/>
+    </Grid>
+</Controls:MetroWindow>
