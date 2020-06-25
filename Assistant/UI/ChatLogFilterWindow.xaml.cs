@@ -254,7 +254,9 @@ namespace Assistant.UI
         {
             if (!_chatLogLoaded)
             {
-                MessageBox.Show(Strings.NoChatLogLoaded, Strings.Error, MessageBoxButton.OK, MessageBoxImage.Error);
+                if (!fastFilter)
+                    MessageBox.Show(Strings.NoChatLogLoaded, Strings.Error, MessageBoxButton.OK, MessageBoxImage.Error);
+                
                 return;
             }
 
