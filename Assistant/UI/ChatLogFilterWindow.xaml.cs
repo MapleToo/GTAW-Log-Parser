@@ -27,12 +27,12 @@ namespace Assistant.UI
         private readonly Dictionary<string, Tuple<string, bool>> _filterCriteria = new Dictionary<string, Tuple<string, bool>>
         {
             // Filter, regex pattern, isEnabled (false = remove from log)
-            { "OOC", Tuple.Create(@"^\(\( \(\d*\) [A-Za-z]+ {0,1}([A-Za-z]+){0,1}:.*?\)\)$", Properties.Settings.Default.OOCCriterionEnabled) },
-            { "IC", Tuple.Create(@"^[A-Za-z]+ {0,1}([A-Za-z]+){0,1} (says|shouts|whispers)( \[low\]){0,1}:.*$", Properties.Settings.Default.ICCriterionEnabled) },
-            { "Emote", Tuple.Create(@"^\* [A-Za-z]+ {0,1}([A-Za-z]+){0,1} .*$", Properties.Settings.Default.EmoteCriterionEnabled) },
-            { "Action", Tuple.Create(@"^\* .* \(\([A-Za-z]+ {0,1}([A-Za-z]+){0,1}\)\)\*$", Properties.Settings.Default.ActionCriterionEnabled) },
-            { "PM", Tuple.Create(@"^\(\( PM (to|from) \(\d*\) [A-Za-z]+ {0,1}([A-Za-z]+){0,1}:.*?\)\)$", Properties.Settings.Default.PMCriterionEnabled) },
-            { "Radio", Tuple.Create(@"^\*\*\[S: .* CH: .*\] [A-Za-z]+ {0,1}([A-Za-z]+){0,1}.*$", Properties.Settings.Default.RadioCriterionEnabled) },
+            { "OOC", Tuple.Create(@"^\(\( \(\d*\) [\p{L}]+ {0,1}([\p{L}]+){0,1}:.*?\)\)$", Properties.Settings.Default.OOCCriterionEnabled) },
+            { "IC", Tuple.Create(@"^[\p{L}]+ {0,1}([\p{L}]+){0,1} (says|shouts|whispers)( \[low\]){0,1}:.*$", Properties.Settings.Default.ICCriterionEnabled) },
+            { "Emote", Tuple.Create(@"^\* [\p{L}]+ {0,1}([\p{L}]+){0,1} .*$", Properties.Settings.Default.EmoteCriterionEnabled) },
+            { "Action", Tuple.Create(@"^\* .* \(\([\p{L}]+ {0,1}([\p{L}]+){0,1}\)\)\*$", Properties.Settings.Default.ActionCriterionEnabled) },
+            { "PM", Tuple.Create(@"^\(\( PM (to|from) \(\d*\) [\p{L}]+ {0,1}([\p{L}]+){0,1}:.*?\)\)$", Properties.Settings.Default.PMCriterionEnabled) },
+            { "Radio", Tuple.Create(@"^\*\*\[S: .* CH: .*\] [\p{L}]+ {0,1}([\p{L}]+){0,1}.*$", Properties.Settings.Default.RadioCriterionEnabled) },
             { "Ads", Tuple.Create(@"^\[.*Advertisement.*\] .*$", Properties.Settings.Default.AdsCriterionEnabled) }
         };
 
