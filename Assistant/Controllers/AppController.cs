@@ -120,7 +120,8 @@ namespace Assistant.Controllers
                 if (string.IsNullOrWhiteSpace(log))
                     throw new IndexOutOfRangeException();
 
-                log = log.Replace("\"chat_log\":\"", string.Empty);  // Remove the chat log indicator
+                // Q: Why REGEX? A: Way faster than parsing the JSON object
+                log = log.Replace("\"chat_log\":\"", string.Empty); // Remove the chat log indicator
                 log = log.Replace("\\n", "\n");                     // Change all occurrences of `\n` into new lines
                 log = log.Remove(log.Length - 1, 1);                // Remove the `"` character from the end
 
