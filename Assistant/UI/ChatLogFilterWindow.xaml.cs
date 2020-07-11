@@ -28,7 +28,7 @@ namespace Assistant.UI
         {
             // Filter, regex pattern, isEnabled (false = remove from log)
             { "OOC", Tuple.Create(@"^\(\( \(\d*\) [\p{L}]+ {0,1}([\p{L}]+){0,1}:.*?\)\)$", Properties.Settings.Default.OOCCriterionEnabled) },
-            { "IC", Tuple.Create(@"^[\p{L}]+ {0,1}([\p{L}]+){0,1} (says|shouts|whispers)( \[low\]){0,1}:.*$", Properties.Settings.Default.ICCriterionEnabled) },
+            { "IC", Tuple.Create(@"^(\(Car\) ){0,1}[\p{L}]+ {0,1}([\p{L}]+){0,1} (says|shouts|whispers)( \[low\]){0,1}:.*$", Properties.Settings.Default.ICCriterionEnabled) },
             { "Emote", Tuple.Create(@"^\* [\p{L}]+ {0,1}([\p{L}]+){0,1} .*$", Properties.Settings.Default.EmoteCriterionEnabled) },
             { "Action", Tuple.Create(@"^\* .* \(\([\p{L}]+ {0,1}([\p{L}]+){0,1}\)\)\*$", Properties.Settings.Default.ActionCriterionEnabled) },
             { "PM", Tuple.Create(@"^\(\( PM (to|from) \(\d*\) [\p{L}]+ {0,1}([\p{L}]+){0,1}:.*?\)\)$", Properties.Settings.Default.PMCriterionEnabled) },
